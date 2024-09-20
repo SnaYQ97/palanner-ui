@@ -12,12 +12,13 @@ export default class Validation<T> {
   value: T;
   isValid: boolean;
   error: string | null;
-  // isDirty?: boolean;
+  isDirty?: boolean;
 
   constructor(value: T) {
     this.value = value;
     this.isValid = true;
     this.error = '';
+    this.isDirty = false;
   }
 
   customCheck(customValidator: () => boolean, errorMessage = '') {
