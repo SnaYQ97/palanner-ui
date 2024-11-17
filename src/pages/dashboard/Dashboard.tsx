@@ -26,8 +26,9 @@ const Dashboard = () => {
 
 
   useEffect(() => {
+    mutation.mutate();
     if (!user.id) {
-      mutation.mutate();
+      navigate(Path.LOGIN);
     }
   }, []);
 

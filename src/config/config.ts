@@ -1,5 +1,5 @@
 // environments
 export const getApiUrl = () => {
-  const hostname = '192.168.100.5';
+  const hostname = document.location.hostname;
   return `http://${hostname}:3000`;
 }

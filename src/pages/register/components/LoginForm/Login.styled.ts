@@ -1,9 +1,9 @@
 import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import {alpha} from "@mui/material";
+import { Alert } from "@mui/material";
 
 interface BackgroundProps {
-  src: string;
+    src: string;
 }
 
 const Styled = {
@@ -14,30 +14,47 @@ const Styled = {
     background: theme.palette.background.paper,
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center' as const,
+    justifyContent: 'flex-start' as const,
     width: '100%',
-    minHeight: '100%',
+    maxHeight: '100%',
   })),
   LoginBox: styled(Box, {
     name: 'MuiLoginBox',
     slot: 'root',
-  })(({theme}) => ({
-    background: alpha(theme.palette.background.paper, 0.3),
+  })(() => ({
     backdropFilter: 'blur(20px)',
+    overflowY: 'auto',
+    height: '100vh',
+    width: '100%'
+  })),
+  LoginWrapper: styled(Box, {
+    name: 'MuiLoginBox',
+    slot: 'root',
+  })(({theme}) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     gap: theme.spacing(5),
     padding: theme.spacing(5),
-    flex: 1,
     zIndex: 1,
+    position: 'relative',
+    minHeight: '100%',
   })),
   Feathers: styled(Box, {
     name: 'MuiFeathersBox',
     slot: 'root',
-  })(() => ({
-    background: 'transparent',
-    width: '66%',
+  })(({theme}) => ({
+    [theme.breakpoints.up('sm')]: {
+      display: 'flex',
+      alignItems: 'center',
+      width: `calc(100% - 50%)`,
+      padding: theme.spacing(5),
+    },
+    [theme.breakpoints.up('md')]: {
+      width: `calc(100% - 450px)`,
+    },
+    display: 'none',
+    zIndex: 2,
   })),
   Background: styled("div", {
     name: 'MuiBackground',
@@ -47,8 +64,19 @@ const Styled = {
     position: 'absolute',
     background: `url(${src})`,
     width: '100%',
-    height: '100%',
-    borderColor: theme.palette.background.paper
+    height: '100vh',
+    borderColor: theme.palette.background.paper,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  })),
+  Alert: styled(Alert, {
+    name: 'MuiAlert',
+    slot: 'root',
+  })(({theme}) => ({
+    position: 'absolute',
+    top: '2%',
+    zIndex: 2,
+    width: `calc(100% - ${theme.spacing(5)} - ${theme.spacing(5)})`,
   })),
 }
 
