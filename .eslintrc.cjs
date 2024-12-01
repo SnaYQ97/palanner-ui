@@ -15,6 +15,14 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
     'indent': ['error', 2, {"ignoredNodes": ["JSXAttribute, JSXSpreadAttribute"]}],
     'react/jsx-first-prop-new-line': ['error', 'never'],
     'react/jsx-max-props-per-line': ['error', { maximum: 1, "when": "always" }],
@@ -26,7 +34,7 @@ module.exports = {
     'react/jsx-indent': ['error', 2, { checkAttributes: true, indentLogicalExpressions: false }],
     'react/jsx-equals-spacing': ['error', 'never'],
   },
-  
-  
-  
+
+
+
 }

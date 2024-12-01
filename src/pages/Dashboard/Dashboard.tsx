@@ -17,7 +17,7 @@ const Dashboard = () => {
     onError: (error) => {
       console.log('nope');
       console.log(error);
-      navigate(Path.LOGIN);
+      navigate(Path.SIGNIN);
     },
     onSuccess: () => {
       navigate(Path.HOME);
@@ -28,7 +28,7 @@ const Dashboard = () => {
   useEffect(() => {
     mutation.mutate();
     if (!user.id) {
-      navigate(Path.LOGIN);
+      navigate(Path.SIGNIN);
     }
   }, []);
 
@@ -37,7 +37,7 @@ const Dashboard = () => {
     AuthService().logout().then(
       () => {
         dispatch(setUser({} as User));
-        navigate(Path.LOGIN);
+        navigate(Path.SIGNIN);
       }
     );
   }
@@ -45,13 +45,37 @@ const Dashboard = () => {
   return (
     <div>
       Dashboard
-      {/*Topbar*/}
+      {/*TopBar
+        <>
+          Notifications
+        </>
+         empty || important Updates
+        <>
+          Profile image, dropdown with  settings, logout
+        </>
+      */}
+      {/*
+        <p>My net worth<p>
+        <NetWorthBalance>
+      */}
+      {/*
+        <p>Checking Account/Accounts<p/>
+        // last statistics form one acc our carosel of statistics
+
+        <>
+          Name
+          Number
+        </>
+      */}
+
+
+
       <div>
         <button onClick={handleLogout}>
           Logout
         </button>
       </div>
-      <Outlet />
+      <Outlet/>
     </div>
   );
 };

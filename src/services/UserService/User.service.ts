@@ -3,7 +3,6 @@ import BaseService from "../BaseService/Base.service.ts";
 export interface UserCreation {
   email: string;
   password: string;
-  passwordConfirmation: string;
   loginAfterCreate?: boolean;
 }
 
